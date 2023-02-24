@@ -12,6 +12,7 @@ public class LinkedListImplementation {
     private Node first;
     private Node last;
 
+    int size = 0;
     public void addLast(int val){
         Node temp = new Node(val);
         if (first == null){
@@ -44,6 +45,8 @@ public class LinkedListImplementation {
         }
 
     }
+
+
 
     public int index(int item){
         int index  = 0;
@@ -80,6 +83,28 @@ public class LinkedListImplementation {
         }
         return false;
     }
+
+    public int size() {
+            Node temp;
+            size = 0;
+            temp = first;
+            while (temp != null){
+                temp = temp.next;
+                size++;
+            }
+            return size;
+        }
+
+    public int[] toArray(){
+        int[] array = new int[size];
+        var temp = first;
+        int index = 0;
+        while(temp!=null){
+            array[index++] = temp.value;
+            temp = temp.next;
+        }
+        return array;
+    }
     public void removeFirst(){
         if (isEmpty())
             throw new NoSuchElementException();
@@ -106,6 +131,9 @@ public class LinkedListImplementation {
                         temp.next = del.next;
                         del = null;
                         break;
+                    }
+                    else{
+                        temp = temp.next;
                     }
                 }
             }
@@ -141,5 +169,21 @@ public class LinkedListImplementation {
         last = temp;
     }
 
+    public void reverse(){
+        if (isEmpty())
+            return;
+        var prev = first;
+        var curr = first.next;
 
+        while(curr!=null){
+            Node second = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = second;
+
+        }
+        last = first;
+        last.next = null;
+        first = prev;
+    }
 }
