@@ -25,6 +25,11 @@ public class HashTable1 {
             System.out.println(item);
         for(var item:map.entrySet()) //gives key, value pairs
             System.out.println(item.getValue());
+
+        System.out.println(map.values());
+//        HashCollisionImplementation map1 = new HashCollisionImplementation();
+//        map1.put(12,"string");
+//        System.out.println("inserted");
     }
 
 }

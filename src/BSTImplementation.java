@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class BSTImplementation {
 
     private class Node {
@@ -52,8 +54,35 @@ public class BSTImplementation {
             return false;
         }
 
+    public ArrayList dist(int dist){
+            var list = new ArrayList<Integer>();
+             dist(root, dist,list);
+             return list;
+    }
 
+        //get all nodes from a given distance from root
+        public void dist(Node root, int dist,ArrayList<Integer> list){
+            if(root == null){
+                return;
+            }
+            if (dist == 0){
+                list.add(root.value);
+            }
+            else{
+                dist(root.left,dist-1,list);
+                dist(root.right,dist-1,list);
+            }
+        }
 
+        //BFS traversal. Traverse nodes at level by level
+        public void traverseLevelOrder(){
+            for (int i=0; i<=height();i++){
+                for (var item:dist(i)){
+                    System.out.println(item);
+                }
+            }
+        }
+        //get height of the tree
         public int height(){
             return height(root);
         }
@@ -68,6 +97,7 @@ public class BSTImplementation {
         }
 
 
+        //check if two trees are same or not
         public boolean equals(BSTImplementation Tree){
             if(Tree == null){
                 return false;
@@ -83,6 +113,7 @@ public class BSTImplementation {
             return false;
         }
 
+        //check if the given tree is BST
         public boolean checkBst(BSTImplementation Tree){
             return checkBst(Tree.root,-1000000,1000000);
         }
@@ -97,6 +128,18 @@ public class BSTImplementation {
         }
 
 
+        //count leaves in a tree
+        public int countLeaves(){
+            return countLeaves(root,0);
+        }
+        private int countLeaves(Node root,int count){
+            if(root.left == null && root.right == null)
+                return 1;
+
+            return countLeaves(root.left,count)+countLeaves(root.right,count);
+
+        }
+        //find min value node in the tree
         public int min(){
             return min(root);
     }

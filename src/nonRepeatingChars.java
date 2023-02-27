@@ -14,6 +14,13 @@ public class nonRepeatingChars {
             }
         }
         System.out.println(map);
+
+        for (var item: map.entrySet()){
+            if(item.getValue()==1){
+                System.out.println(item.getKey());
+            }
+        }
+
         for (var ch : str.toCharArray()) {
             if(map.get(ch)==1){
                 System.out.println(ch);

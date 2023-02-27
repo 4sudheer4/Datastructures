@@ -17,7 +17,7 @@ public class HashCollisionImplementation {
         if (entries[index] == null){
             entries[index] = new LinkedList<>();
         }
-        var entry = new Entry(2,"kay");
+        var entry = new Entry(key,"kay");
         entries[index].addLast(entry);
 
 
