@@ -19,8 +19,13 @@ public class TrieImplementation {
             childrenH.put(ch, new Node(ch));
         }
 
+        //returns value of the childrenHash, which is a Node. Hash has <Key: ch, Value: Node>
         private Node getChild(char ch){
             return childrenH.get(ch);
+        }
+
+        public Node[] getValues(){
+            return childrenH.values().toArray(new Node[0]);
         }
     }
 
@@ -52,8 +57,32 @@ public class TrieImplementation {
 
     }
 
-    public Node[] getValues(){
-        return root.childrenH.values().toArray(new Node[0]);
+    public void traverse(){
+        traverse(root);
+    }
+// here 'a' has two hash maps in the give example of 'cat' and 'caught'
+    private void traverse(Node root){
+
+        for(var child: root.getValues()){
+            traverse(child);
+        }
+        System.out.println(root.value);
+    }
+
+    public void remove(String word){
+        remove(word.toCharArray(),root,0);
+    }
+    private void remove(char[] word,Node root,int index){
+
+        for(var child: root.getValues()){
+            if(index>=word.length)
+                break;
+            if(word[index]== child.value)
+                remove(word,child,index+1);
+
+        }
+
+        System.out.println(root.value);
     }
     public boolean contains(String word){
         if (word == null){

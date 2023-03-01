@@ -3,11 +3,11 @@ public class Trie1 {
         TrieImplementation trie = new TrieImplementation();
 //        trie.insert("cat");
 //        trie.insert("caught");
-        trie.insertH("caught");
-        trie.insertH("cat");
+        trie.insertH("care");
+        trie.insertH("car");
 
-        System.out.println(trie.contains("caug"));
+        System.out.println(trie.contains("car"));
 
-        System.out.println(trie.getValues()[0]);
+        trie.traverse();
     }
 }

@@ -20,7 +20,9 @@ public class HashTable1 {
         System.out.println(map);
         System.out.println(val);
         //hashmap iterator
-
+        System.out.println("get value");
+        //in hashmap, get is used to get the value of a Key in the Map. Where getValue() is used to get value from the .entrySet() [which returns key,value pairs]
+        System.out.println(map.get(3));
         for(var item:map.keySet()) //gives keys
             System.out.println(item);
         for(var item:map.entrySet()) //gives key, value pairs
