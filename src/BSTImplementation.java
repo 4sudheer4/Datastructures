@@ -125,7 +125,7 @@ public class BSTImplementation {
             if (root.value<min || root.value > max){
                 return false;
             }
-            return (checkBst(root.left,min,root.value-1 )) && (checkBst(root.right,root.value-1,max));
+            return (checkBst(root.left,min,root.value-1 )) && (checkBst(root.right,root.value+1,max));
         }
 
 

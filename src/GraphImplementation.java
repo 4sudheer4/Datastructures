@@ -29,6 +29,16 @@ public class GraphImplementation {
 
     //there are two Hashmaps, one is to hold the label and the Node, Second is to hold the Node and the ArrayList to it(storing the edges)
 
+    /*
+    public void addn(String label){
+        var temp = new Node(label);
+        if(!nodes.containsKey(label))
+            nodes.put(label, temp);
+        if(!adjacencyList.containsKey(temp))
+            adjacencyList.put(temp,new ArrayList<>());
+    }
+    */
+
     public void addNode(String label){
         var node = new Node(label);
         //store this node somewhere in the graph
@@ -93,6 +103,34 @@ public class GraphImplementation {
             if(!vis.contains(node))
                 DFS(node,vis);
         }
+    }
+
+    public void DFSIterate(String label){
+        DFSIterate(nodes.get(label),new HashSet<>());
+    }
+    private void DFSIterate(Node root, Set<Node> vis){
+        //add root into stack
+        //check while stack is not empty (loop)
+        //pop the root and display, add to visited
+        //add the neighbours to the stack repeat
+
+       Stack<Node> stack = new Stack<>();
+       stack.push(root);
+       while(!stack.isEmpty()){
+           var current = stack.pop();
+           if(vis.contains(current)) {
+               continue;
+           }
+           System.out.println(current);
+           vis.add(current);
+           for(var node:adjacencyList.get(current)){
+               if(!vis.contains(node))
+                    stack.push(node);
+           }
+
+       }
+
+
     }
 }
 

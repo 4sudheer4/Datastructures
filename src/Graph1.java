@@ -14,6 +14,7 @@ public class Graph1 {
         //graph.removeEdge("A","B");
 //        graph.remove("B");
         graph.DFS("A");
+        graph.DFSIterate("A");
         graph.print();
 
     }

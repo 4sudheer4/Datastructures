@@ -7,16 +7,30 @@ public class HashTable1 {
 
         //Map is an interface and Hashmap is an implementation of this interface
         Map<Integer, String> map = new HashMap<>();
+
+        /* To insert <key, value> pairs into HashMap use .PUT(K,V) */
         map.put(1, "josh");
         map.put(3, "josh");
         map.put(2, "josh");
         map.put(4, "josh");
         map.put(4, "Nolan"); //Keys can't be duplicated, new values will overwrite the old ones
         map.put(null,null); //they accept null keys and values
-        map.remove(4);
-        map.containsKey(3); //O(1)
-        map.containsValue("Mosh"); //O(n) (it has to iterate over all the object)
+
+        /* To get value of a Given Key use .get(KEY) */
         var val = map.get(3);
+
+
+        /* To remove Key from a map use .remove(KEY) */
+        map.remove(4);
+
+        /* To check if a key is available or not in hashMap key set USE .containsKey(KEY) */
+        map.containsKey(3); //O(1)
+
+        /* To check if a key is available or not in hashMap Value set, USE .containsValue(KEY) */
+        map.containsValue("Mosh"); //O(n) (it has to iterate over all the object)
+
+
+
         System.out.println(map);
         System.out.println(val);
         //hashmap iterator
@@ -28,10 +42,13 @@ public class HashTable1 {
         for(var item:map.entrySet()) //gives key, value pairs
             System.out.println(item.getValue());
 
+        /* WIll provide all the value in the HashMap*/
         System.out.println(map.values());
+
 //        HashCollisionImplementation map1 = new HashCollisionImplementation();
 //        map1.put(12,"string");
 //        System.out.println("inserted");
     }
+
 
 }
