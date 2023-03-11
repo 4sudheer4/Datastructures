@@ -122,10 +122,12 @@ public class BSTImplementation {
             if (root == null){
                 return true;
             }
+            //to check if left sides are less than root and right sides are greater than root.
             if (root.value<min || root.value > max){
                 return false;
             }
             return (checkBst(root.left,min,root.value-1 )) && (checkBst(root.right,root.value+1,max));
+
         }
 
 
